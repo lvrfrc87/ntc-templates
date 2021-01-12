@@ -1,10 +1,5 @@
 #!/usr/bin/env python
-import os
 import re
-import csv
-import glob
-
-import pytest
 
 from tests import load_index_data
 
@@ -56,7 +51,8 @@ OS_CHOICES = [
     "vyos",
     "watchguard_firebox",
 ]
-RE_TEMPLATE_OS = re.compile("^(" + "|".join(OS_CHOICES) + ")")
+CHOICES_STRING = "|".join(OS_CHOICES)
+RE_TEMPLATE_OS = re.compile(rf"^({CHOICES_STRING})")
 
 
 def check_order(
